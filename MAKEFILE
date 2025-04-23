@@ -1,0 +1,10 @@
+all:
+	lex grammar.l
+	yacc -d grammar.y
+	gcc lex.yy.c y.tab.c -o grammar_detector
+
+run: all
+	./grammar_detector
+
+clean:
+	rm -f grammar_detector lex.yy.c y.tab.* *.out
